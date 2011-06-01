@@ -1,3 +1,4 @@
+require 'forem'
 module Forem
   module Theme
     module Base
