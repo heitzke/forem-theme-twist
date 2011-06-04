@@ -1,5 +1,5 @@
 body {
-  font: 14pt "Myriad Pro";
+  font: 12pt "Myriad Pro";
 }
 
 table#forums, .topics {
@@ -18,7 +18,12 @@ table#forums, .topics {
   th, td {
     padding: 10px;
   }
+  
+  .last_post {
+    font-size: 80%;
+  }
 }
+
 
 #posts {
   width: 70%;
@@ -29,27 +34,40 @@ table#forums, .topics {
   -webkit-border-radius: .5em;
   border-radius: .5em;
   
-  .odd td {
-    background: #dcdcdc;
-  }
-  
-  .even td {
-    background: white;
-  }
-  
-  .post {
+  .odd {
+    .contents {
+      background: #dcdcdc;
+    }
+    
     .user {
       background: #69008C;
+    }
+  }
+  
+  .even {
+    .contents {
+      background: white;
+      border-top: 1px solid #AAAAAA;
+    }
+    
+    .user {
+      border-top: 2px solid #AA00E3;
+      background: #8100AD;
+    }
+  }
+
+  .post {
+    .user {
       color: white;
       font-weight: bold;
-      padding: 5px;
+      padding: 10px;
       vertical-align: top;
       width: 15%;
       border-right: 2px solid #3B005C;
     }
 
     .contents {
-      padding: 5px;
+      padding: 10px;
     }
     
     time {
@@ -61,8 +79,4 @@ table#forums, .topics {
       margin-left: 0px;
     }
   }
-}
-
-.last_post {
-  font-size: 75%;
 }
