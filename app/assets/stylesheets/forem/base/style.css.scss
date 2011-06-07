@@ -1,82 +1,221 @@
-body {
-  font: 12pt "Myriad Pro";
+$light-bg1: #eee;
+$mid-bg1: #bbb;
+$mid-bg1-highlight: #aaa;
+$bar1-topbg: #eee;
+$bar1-midbg: #bbb;
+$bar1-bottombg: #aaa;
+$lighter-text: #777;
+$visited-text: #333;
+$default-text: #000;
+$darkbg: #333;
+$darkbg-highlight: #222;
+
+body{
+  font-family: GillSans, Calibri, Trebuchet, sans-serif;
+  color: $default-text;
 }
 
-table#forums, .topics {
-  width: 70%;
-  margin-left: 15%;
-  margin-right: 15%; 
-  border: 2px solid #6E167B;
-  -moz-border-radius: .5em;
-  -webkit-border-radius: .5em;
-  border-radius: .5em;
-  th {
-    background: #6E167B;
+#forum{
+  position: relative;
+  h2{
+    margin-bottom: 0;
+    a{
+      text-decoration: none;
+      color: $default-text;
+    }
+  }
+  .secondary-nav{
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  .description{
+    color: $lighter-text;
+    font-style: oblique;
+  }
+  menu{
+    background-color: $bar1-midbg;
+    margin-left: 0;
+    padding-left: 0;
+    a{
+      padding: .5em;
+      display: inline-block;
+      color: $default-text;
+      text-decoration: none;
+      &:hover{
+        background-color: $bar1-bottombg;
+      }
+      margin: 0;
+    }
+  }
+}
+
+#topic{
+  h2{
+    padding: .5em;
+    position: relative;
+    background-color: $darkbg;
     color: white;
-    text-align: left;
-  }
-  th, td {
-    padding: 10px;
-  }
-  
-  .last_post {
-    font-size: 80%;
+    margin: 0;
+    a.reply{
+      margin-right: 1em;
+      font-weight: normal;
+      position: absolute;
+      right: 0;
+      padding: .5em;
+      background-color: #fff;
+      font-size: .5em;
+      text-decoration: none;
+      &:hover{
+        background-color: $light-bg1;
+      }
+    }
   }
 }
 
-
-#posts {
-  width: 70%;
-  margin-left: 15%;
-  margin-right: 15%; 
-  border: 2px solid #6E167B;
-  -moz-border-radius: .5em;
-  -webkit-border-radius: .5em;
-  border-radius: .5em;
-  
-  .odd {
-    .contents {
-      background: #dcdcdc;
+#posts{
+  .post{
+    clear: both;
+    position: relative;
+    .user{
+      float: left;
+      font-size: .75em;
+      width: 140px;
+      display: inline-block;
+      padding: .5em 1em;
+      .username{
+        font-weight: bold;
+      }
+      .icon{
+        background: transparent url(http://placekitten.com/50/50) no-repeat;
+        width: 50px;
+        height: 50px;
+        display: inline-block;
+      }
+      .member-for{
+        width: 80px;
+        display: inline-block;
+      }
     }
-    
-    .user {
-      background: #69008C;
+    .contents{
+      margin-left: 160px;
+      min-height: 100px;
+      border-left: 1px solid $mid-bg1;
+      padding: .1em 1em;
+
+      time{
+        color: $lighter-text;
+        margin-bottom: 1em;
+        font-size: .7em;
+        line-height: 18px;
+      }
+      .text{
+        margin-right: 100px;
+      }
+      &:hover .actions{
+        display: block;
+      }
+      .actions{
+        display: none;
+        position: absolute;
+        right: 10px;
+        bottom: 0;
+        list-style-type: none;
+        li{
+          a{
+            text-align: center;
+            display: block;
+            text-decoration: none;
+            padding: .25em;
+            margin-bottom: .25em;
+            color: $default-text;
+            background-color: $mid-bg1;
+            &:hover{
+              background-color: $mid-bg1-highlight;
+            }
+          }
+        }
+      }
     }
   }
-  
-  .even {
-    .contents {
-      background: white;
-      border-top: 1px solid #AAAAAA;
+}
+
+.even{
+  background-color: $light-bg1;
+}
+
+table.subdued{
+  width: 100%;
+  a{
+    text-decoration: none;
+    &:visited{
+      color: $visited-text;
     }
-    
-    .user {
-      border-top: 2px solid #AA00E3;
-      background: #8100AD;
+    &:hover{
+      text-decoration: underline;
     }
   }
-
-  .post {
-    .user {
-      color: white;
-      font-weight: bold;
-      padding: 10px;
-      vertical-align: top;
-      width: 15%;
-      border-right: 2px solid #3B005C;
-    }
-
-    .contents {
-      padding: 10px;
-    }
-    
-    time {
-      font-size: 80%;
-    }
-    
-    .actions {
-      list-style-type: none;
-      margin-left: 0px;
+  td, th{
+    padding: .5em;
+  }
+  thead{
+    th{
+      background-color: $bar1-midbg;
+      font-weight: normal;
+      text-align: left;
     }
   }
+  tbody{
+    color: $lighter-text;
+    .subject{
+    }
+    .started-by{
+      font-size: .7em;
+      color: $lighter-text;
+    }
+    .latest-post{
+      font-size: .7em;
+      width: 80px;
+      a{
+        text-decoration: none;
+        &:hover{
+          text-decoration: underline;
+        }
+      }
+    }
+    .posts-count, .views-count{
+      font-size: .8em;
+      width: 80px;
+    }
+  }
+}
+
+.pages{
+  .page{
+    display: inline-block;
+    padding: .25em;
+    &.current{
+      background-color: $light-bg1;
+    }
+  }
+  a{
+    text-decoration: none;
+    &:hover{
+      text-decoration: underline;
+    }
+  }
+}
+
+.lock.icon{
+  width: 24px;
+  height: 24px;
+  background: transparent url(/assets/forem/lock_icon.png) 0 0;
+  display: inline-block;
+}
+
+.pin.icon{
+  width: 9px;
+  height: 15px;
+  background: transparent url(/assets/forem/pin_icon.png) 0 0;
+  display: inline-block;
 }
