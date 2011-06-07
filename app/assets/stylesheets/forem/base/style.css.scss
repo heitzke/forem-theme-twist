@@ -13,17 +13,12 @@ $darkbg-highlight: #222;
 body{
   font-family: GillSans, Calibri, Trebuchet, sans-serif;
   color: $default-text;
+  margin-left: 15%;
+  margin-right: 15%;
 }
 
 #forum{
   position: relative;
-  h2{
-    margin-bottom: 0;
-    a{
-      text-decoration: none;
-      color: $default-text;
-    }
-  }
   .secondary-nav{
     position: absolute;
     right: 0;
@@ -34,10 +29,9 @@ body{
     font-style: oblique;
   }
   menu{
-    background-color: $bar1-midbg;
-    margin-left: 0;
     padding-left: 0;
     a{
+      background-color: $bar1-midbg;
       padding: .5em;
       display: inline-block;
       color: $default-text;
@@ -50,13 +44,20 @@ body{
   }
 }
 
-#topic{
+#topic, #forum {
   h2{
     padding: .5em;
     position: relative;
-    background-color: $darkbg;
-    color: white;
-    margin: 0;
+    background-color: $light-bg1;
+    color: #232323;
+    // margin: 0;
+    a{
+      text-decoration: none;
+      color: #232323;
+      &:hover{
+        text-decoration: underline;
+      }
+    }
     a.reply{
       margin-right: 1em;
       font-weight: normal;
@@ -74,7 +75,15 @@ body{
 }
 
 #posts{
+  
+  .even{
+    background-color: $light-bg1;
+  }
+  .odd{
+    background-color: #cfcfcf;
+  }
   .post{
+    min-height: 75px;
     clear: both;
     position: relative;
     .user{
@@ -104,6 +113,7 @@ body{
       padding: .1em 1em;
 
       time{
+        padding: 5px;
         color: $lighter-text;
         margin-bottom: 1em;
         font-size: .7em;
@@ -138,10 +148,6 @@ body{
       }
     }
   }
-}
-
-.even{
-  background-color: $light-bg1;
 }
 
 table.subdued{
