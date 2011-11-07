@@ -111,10 +111,10 @@ form {
 
 #posts{
   
-  .even .contents {
+  .odd .contents {
     background-color: #ffffff;
   }
-  .odd .contents{
+  .even .contents{
     background-color: #efefef;
   }
   .post{
